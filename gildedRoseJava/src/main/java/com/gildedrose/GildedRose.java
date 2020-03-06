@@ -7,23 +7,23 @@ class GildedRose {
 		this.items = items;
 	}
 
-// the main method for updating both the quality and the sellIn for each product
+// the main method for updating both the quality and the sellIn for all product
 	public void updateQuality() {
 		for (int i = 0; i < items.length; i++) {
 			switch (items[i].name) {
 			case "Aged Brie":
-				UpdateAgedBrie(i);
+				updateAgedBrie(i);
 				break;
 			case "Backstage passes to a TAFKAL80ETC concert":
-				UpdateBackstage(i);
+				updateBackstage(i);
 				break;
 
 			case "Sulfuras, Hand of Ragnaros":
-				//nothing to do because they always stable no update
+				// nothing to do because they always stable no update
 				break;
 
 			default:
-				UpdateOther(i);
+				updateOther(i);
 				break;
 
 			}
@@ -31,9 +31,12 @@ class GildedRose {
 
 	}
 
-	// below you will find the method for each product
+	
+	
+	
+	// below  the methods for each product
 
-	public void UpdateAgedBrie(int i) {
+	public void updateAgedBrie(int i) {
 		if (items[i].quality > 49) {
 			items[i].sellIn--;
 		} else {
@@ -43,7 +46,7 @@ class GildedRose {
 
 	}
 
-	public void UpdateBackstage(int i) {
+	public void updateBackstage(int i) {
 
 		if (items[i].sellIn > 0) {
 
@@ -60,8 +63,8 @@ class GildedRose {
 			} else {
 				items[i].sellIn--;
 			}
-		} 
-		//if the backstage expire the quality automatically zero
+		}
+		// if the backstage expire the quality automatically zero
 		else {
 			items[i].quality = 0;
 			items[i].sellIn--;
@@ -69,9 +72,7 @@ class GildedRose {
 
 	}
 
-	
-
-	public void UpdateOther(int i) {
+	public void updateOther(int i) {
 		if (items[i].quality == 0) {
 			items[i].sellIn--;
 		} else {
